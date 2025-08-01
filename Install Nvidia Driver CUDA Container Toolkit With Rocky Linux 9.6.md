@@ -109,7 +109,7 @@ source ~/.bashrc
 ```
 nvcc --version
 ```
-應該會顯示如下資訊 
+應該會顯示如下資訊  
 <img width="341" height="117" alt="image" src="https://github.com/user-attachments/assets/5b96c080-e626-4d8f-9ba7-fcd253bb188c" />
 
 # 安裝 Nvidia Container Toolkit 
