@@ -84,7 +84,8 @@ sudo lspci -k | grep -A 2 -i "NVIDIA"
 
 
 
-# 安裝 Nvidia Driver [參考資訊]([https://markdownlivepreview.com/](https://ivonblog.com/posts/rockylinux-install-nvidia-drivers/#2-%E5%AE%89%E8%A3%9Dcuda))
+# 安裝 Nvidia CUDA 
+[參考資訊]([https://markdownlivepreview.com/](https://ivonblog.com/posts/rockylinux-install-nvidia-drivers/#2-%E5%AE%89%E8%A3%9Dcuda))
 #### STEP 1 : 加入Nvidia官方套件庫，選取RHEL 9版本
 ```
 curver="rhel$(rpm -E %rhel)"
@@ -111,7 +112,8 @@ nvcc --version
 應該會顯示如下資訊
 <img width="341" height="117" alt="image" src="https://github.com/user-attachments/assets/5b96c080-e626-4d8f-9ba7-fcd253bb188c" />
 
-# 安裝 Nvidia Container Toolkit [參考資訊](https://ivonblog.com/posts/rockylinux-install-nvidia-drivers/#2-%E5%AE%89%E8%A3%9Dcuda)
+# 安裝 Nvidia Container Toolkit 
+[參考資訊](https://ivonblog.com/posts/rockylinux-install-nvidia-drivers/#2-%E5%AE%89%E8%A3%9Dcuda)
 在 Docker 或 Podman 容器內跑 CUDA 的技術。宿主機必須安裝 Nvidia專有驅動，但不需要安裝CUDA
 #### STEP 1 : 安裝 Docker
 [Docker 安裝參考資訊](https://docs.docker.com/engine/install/)
@@ -122,7 +124,7 @@ curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-contai
   sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
 ```
 
-#### STEP 3 : 安裝Nvidia Container Toolkit
+#### STEP 3 : 安裝 Nvidia Container Toolkit
 ```
 sudo dnf install nvidia-container-toolkit
 ```
