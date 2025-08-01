@@ -1,4 +1,4 @@
-# 建立包含 sticky module 功能的 Nginx 以達到 session 分流目的
+# 建立包含 sticky module 功能的 Nginx ，透過 Cookie 達到 session 分流目的
   
   
 ## 前置作業 
