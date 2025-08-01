@@ -109,7 +109,7 @@ source ~/.bashrc
 ```
 nvcc --version
 ```
-應該會顯示如下資訊
+應該會顯示如下資訊 
 <img width="341" height="117" alt="image" src="https://github.com/user-attachments/assets/5b96c080-e626-4d8f-9ba7-fcd253bb188c" />
 
 # 安裝 Nvidia Container Toolkit 
@@ -147,7 +147,7 @@ sudo systemctl restart docker
 ```
 sudo docker run --rm --gpus all nvidia/cuda:12.2.0-base-ubi8 nvidia-smi
 ```
-如果成功安裝容器運作時就會顯示 Nvidia 的驅動版本
+如果成功安裝容器運作時就會顯示 Nvidia 的驅動版本 
 <img width="842" height="335" alt="image" src="https://github.com/user-attachments/assets/a271ba89-965a-4840-8c0d-c8771b9f5ea3" />
 
 
