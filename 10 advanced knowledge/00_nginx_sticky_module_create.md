@@ -1,4 +1,7 @@
-# 前置作業 
+# 建立包含 sticky module 功能的 Nginx 以達到 session 分流目的
+  
+  
+## 前置作業 
 1. 升級 OPENSSL 1.0.2h  https://www.bipmedia.com/blog/tutorial/how-to-install-the-latest-openssl-102h-version-on-centos-67
 2. 安裝以下套件
 ```
@@ -18,7 +21,7 @@ wget https://nginx.org/download/nginx-0.1.16.tar.gz
 tar zxvf nginx-0.1.16.tar.gz
 ```
 
-# 安裝作業 
+## 安裝作業 
 #### 先關閉nginx，避免有nginx 服務正在使用
 ```
 service nginx stop
