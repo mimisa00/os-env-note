@@ -2,7 +2,7 @@
 OS    : Rocky Linux 9.6   
 GPU : DataCenter Level NVIDIA L4  
 Driver : Data Center Driver for Linux RHEL 9 570.158.01 | Linux 64-bit RHEL 9  
-安裝 Nvidia Driver (參考資訊)  
+安裝 Nvidia Driver [參考資訊](https://ivonblog.com/posts/rockylinux-install-nvidia-drivers/#1-%E5%AE%89%E8%A3%9Dnvidia%E5%B0%88%E6%9C%89%E9%A9%85%E5%8B%95)
 
 #### STEP 1 : 檢查目前 Nvidia GPU 由什麼驅動 
 ```
