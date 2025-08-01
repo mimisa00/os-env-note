@@ -128,8 +128,9 @@ curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-contai
 ```
 sudo dnf install nvidia-container-toolkit
 ```
-如果發生GPG金鑰過期問題導致無法順利安裝..參考 [Nvidia Developer](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/) 解決方案，然後重新安裝 nvidia-container-toolkit
-<img width="974" height="709" alt="image" src="https://github.com/user-attachments/assets/8a8322e5-0b4a-481a-9b26-b6555d36c8d3" />
+
+> 如果發生GPG金鑰過期問題導致無法順利安裝..參考 [Nvidia Developer](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/) 解決方案，然後重新安裝 nvidia-container-toolkit
+>> <img width="974" height="709" alt="image" src="https://github.com/user-attachments/assets/8a8322e5-0b4a-481a-9b26-b6555d36c8d3" /> 
 ```
 #由於是Rocky Linux 9.6 版本對應的 RHEL 為 rhel9/x86_64
 sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo
