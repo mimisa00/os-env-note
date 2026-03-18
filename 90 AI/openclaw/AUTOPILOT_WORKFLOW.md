@@ -38,7 +38,7 @@
 4. 工作目錄標準路徑：`autopilot/{IssueID}/`（存放所有中間產出物）。
 5. 分支命名規範：`branch-{IssueID}-autopilot`（例如：`branch-QOP-5878-autopilot`）。
 6. 基礎分支：一律從 `testing` 分支起始（`hg update testing`），若無 `testing` 則暫停流水線並詢問 Shaun
-7. Jira 資料抓取：使用 REST API (`curl -u ai-werp-dev-bot:ai-werp-dev-bot "http://jira.shaun.com/rest/api/2/issue/{IssueID}"`)，不使用 browser 工具。
+7. Jira 資料抓取：使用 REST API (`curl -u username:password "http://jira.shaun.com/rest/api/2/issue/{IssueID}"`)，不使用 browser 工具。
 
 ---
 
@@ -379,7 +379,7 @@
      - `could not extract ResultSet`（查詢結果集異常）
      - 與本次 Issue ID 相關的 ERROR 日誌
      - 任何匹配即視為 **Smoke Test 失敗**
-  5. 🆕 **功能路徑觸發**（如適用）：如果 `implementation_spec.json` 中定義了 REST API 端點，嘗試用 curl 觸發該端點（GET 或 POST），驗證不回傳 500 錯誤。
+  5. 🆕 **功能路徑觸發**（如適用）：如果 `implementation_spec.json` 中定義了 REST API 端點，嘗試用  觸發該端點（GET 或 POST），驗證不回傳 500 錯誤。
 * **失敗處理：** Smoke Test 失敗 → 通知 Shaun，附上失敗項目與錯誤訊息，建議回滾。
 
 ---
