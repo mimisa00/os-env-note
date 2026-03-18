@@ -217,7 +217,7 @@
 * **任務：**
   1. `hg add`（新增檔案時）
   2. `hg commit -m "[{IssueID}] {需求摘要}"`
-  3. `hg push http://ai-werp-dev-bot:ai-werp-dev-bot@scm.iwerp.xyz:8000/scm/hg/{project-pom}`
+  3. `hg push http://scm.iwerp.xyz:8000/scm/hg/{project-pom}`
 * **Commit Message 規範：** `[{IssueID}] {一句話需求摘要}`
 * **輸出：** SCM 上可見的新 changeset。
 
