@@ -26,8 +26,10 @@ wait_timeout = 3600
 interactive_timeout = 3600
 
 # 用途：若啟用，代表等待網路讀取/寫入資料的超時時間，目前維持預設值。
-#net_read_timeout = 3600
-#net_write_timeout = 3600
+# net_read_timeout default 30
+#net_read_timeout = 60
+# net_write_timeout default 60
+#net_write_timeout = 120
 
 # 用途：全伺服器允許的最大同時連線數。
 # 影響：提高到 1500 可以應付高流量併發。但要注意，連線數越多，消耗的記憶體就越多，需確保伺服器 RAM 足夠。
