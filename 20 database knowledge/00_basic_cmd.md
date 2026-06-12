@@ -123,3 +123,19 @@ mysqlbinlog mysql-bin.000012 > mysql-bin.000012.log
 # 依時間範圍過濾
 mysqlbinlog --start-date="YYYY-MM-DD HH:MM:SS" --stop-date="YYYY-MM-DD HH:MM:SS" /var/lib/mysql/mysql-bin.000012 > /tmp/output.sql
 ```
+
+### 9. Replication 抄寫失敗
+```
+# 先執行以下指令查看錯誤訊息為何
+SHOW SLAVE STATUS
+
+# 如果只是重開機後未喚醒同步抄寫時，執行以下指令喚醒抄寫作業
+START SLAVE;
+
+# 如果是抄寫過程時發生異常則需仔細查看 Last Error 為何，如果是結構問題導致資料寫入異常則 skip 該筆寫入動作，然後再觀察是否持續發生異常，再用同樣方式處理 | 多數情況下都是因為結構問題導致寫入失敗，當恢復抄寫時應回頭修正 master 結構性問題，避免 repl 主機寫入的內容不正確
+STOP SLAVE;
+-- 跳過這一個引發錯誤的事件
+SET GLOBAL sql_slave_skip_counter = 1; 
+START SLAVE;
+SHOW SLAVE STATUS
+```
