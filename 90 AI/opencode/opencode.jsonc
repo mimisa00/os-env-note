@@ -1,0 +1,126 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "read": "allow",
+    "edit": "allow",
+    "bash": "allow",
+    "webfetch": "allow",
+	"websearch": "allow",
+	"grep": "allow",
+	"glob": "allow",
+	"skill": "allow",
+	"question": "allow",
+	"playwright_*": "deny"
+  },
+  "model": "openai/gpt-oss-20b",
+  "provider": {
+    "vllm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "vllm Local",
+      "options": {
+        "baseURL": "http://192.168.250.159:8000/v1",
+        "apiKey": "vllm"
+      },
+      "models": {
+        "openai/gpt-oss-20b": {
+          "name": "openai/gpt-oss-20b",
+          "limit": {
+            "context": 65535,
+            "output": 8192
+          }
+        },
+        "qwen2.5-coder-7b": {
+          "name": "qwen2.5-coder-7b",
+          "limit": {
+            "context": 131072,
+            "output": 8192
+          }
+        },
+		"qwen3-4b-thinking": {
+          "name": "qwen3-4b-thinking",
+          "limit": {
+            "context": 131072,
+            "output": 8192
+          }
+        }
+      }
+    },
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama Local",
+      "options": {
+        "baseURL": "http://192.168.250.159:11434/v1",
+        "apiKey": "ollama"
+      },
+      "models": {
+        "qwen3-coder-64k:latest": {
+          "name": "Qwen3 Coder 30B 64K(Primary Developer)",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
+        },
+        "qwen3-coder:30b": {
+          "name": "Qwen3 Coder 30B (Primary Developer)",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
+        },
+        "qwen3.6:latest": {
+          "name": "Qwen 3.6 Multimodal/General",
+          "limit": {
+            "context": 32768,
+            "output": 4096
+          }
+        },
+        "pdurlej/qwythos-9b-claude-mythos-5-1m:Q4_K_M": {
+          "name": "Qwythos 9B (Large Context Analyst)",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
+        },
+        "hf.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF:BF16": {
+          "name": "Qwythos 9B Unquantized BF16",
+          "limit": {
+            "context": 32768,
+            "output": 4096
+          }
+        },
+        "gpt-oss:20b": {
+          "name": "GPT-OSS 20B (Fast Utility)",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        },
+        "gpt-oss-20b-128k:latest": {
+          "name": "GPT-OSS 20B 128k(Fast Utility)",
+          "limit": {
+            "context": 131072,
+            "output": 8192
+          },
+          "options": {
+		    "num_ctx": 131072,
+            "extraBody": {
+              "preserve_thinking": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "mcp": {
+    // 賦予 opencode 網頁點擊能力,僅供 qa agent 在驗證階段使用
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx", "-y", "@playwright/mcp@latest",
+        "--isolated",   // 每次 session 用乾淨的 browser context,不留 cookie/localStorage,QA 不該汙染真實登入態
+        "--headless"    // 沒有桌面環境的機器/CI 上必要
+      ],
+      "enabled": true
+    }
+  }
+}
