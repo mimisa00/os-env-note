@@ -117,8 +117,9 @@
       "type": "local",
       "command": [
         "npx", "-y", "@playwright/mcp@latest",
-        "--isolated",   // 每次 session 用乾淨的 browser context,不留 cookie/localStorage,QA 不該汙染真實登入態
-        "--headless"    // 沒有桌面環境的機器/CI 上必要
+        "--isolated",          // 每次 session 用乾淨的 browser context,不留 cookie/localStorage,QA 不該汙染真實登入態
+        "--headless",          // 沒有桌面環境的機器/CI 上必要
+		"--caps=tabs,storage"  // 新增:tabs 給目前分頁/URL,storage 給 cookie 讀寫
       ],
       "enabled": true
     }
