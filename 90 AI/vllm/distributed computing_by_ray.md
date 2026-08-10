@@ -64,6 +64,12 @@ https://docs.ray.io/en/latest/index.html#
 4. 在主機 A 啟動 vLLM API Server
 - 在主機 A 執行 vLLM 命令，設定 --pipeline-parallel-size 3（PP=3）：
   ```
+  ray stop --force
+  pkill -9 -f vllm
+  pkill -9 -f ray
+  rm -rf /tmp/ray
+  ```
+  ```
   #關閉 IPV6 | 網卡名稱需替換成實際網卡
   export GLOO_SOCKET_IFNAME=eth0
   export NCCL_SOCKET_IFNAME=eth0
