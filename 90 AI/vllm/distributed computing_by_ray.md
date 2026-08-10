@@ -64,6 +64,16 @@ https://docs.ray.io/en/latest/index.html#
 4. 在主機 A 啟動 vLLM API Server
 - 在主機 A 執行 vLLM 命令，設定 --pipeline-parallel-size 3（PP=3）：
   ```
+  #關閉 IPV6 | 網卡名稱需替換成實際網卡
+  export GLOO_SOCKET_IFNAME=eth0
+  export NCCL_SOCKET_IFNAME=eth0
+  export TP_SOCKET_IFNAME=eth0
+  export GLIBCXX_USE_CXX11_ABI=1
+  #HF 設定值
+  HF_HOME=/path
+  HF_TOKEN=hf_token
+  ```
+  ```
   python3 -m vllm.entrypoints.openai.api_server \
       --model openai/gpt-oss-20b              \
       --pipeline-parallel-size 3              \
