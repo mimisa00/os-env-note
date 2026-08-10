@@ -80,7 +80,7 @@ https://docs.ray.io/en/latest/index.html#
   or
   ```
   python3 -m vllm.entrypoints.openai.api_server \
-      --model QuixiAI'Qwen3-30B-A3B-AWQ       \
+      --model QuixiAI/Qwen3-30B-A3B-AWQ       \
       --pipeline-parallel-size 3              \
       --tensor-parallel-size 1                \
 	  --distributed-executor-backend ray      \
