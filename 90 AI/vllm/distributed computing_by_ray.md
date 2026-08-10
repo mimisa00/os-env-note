@@ -115,7 +115,7 @@ https://docs.ray.io/en/latest/index.html#
       --host 0.0.0.0 \
       --port 8000 \
       --gpu-memory-utilization 0.9 \
-	  --hf-overrides '{"rope_scaling": {"rope_type":"yarn","factor":4.0,"original_max_position_embeddings":32768}}'
+      --rope-scaling '{"rope_type":"yarn","factor":4.0,"original_max_position_embeddings":32768}' \
       --max-model-len 131072 \
       --enforce-eager \
       --quantization awq \
