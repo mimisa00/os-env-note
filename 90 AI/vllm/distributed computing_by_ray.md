@@ -78,7 +78,12 @@ https://docs.ray.io/en/latest/index.html#
   #HF 設定值
   export HF_HOME=/path
   export HF_TOKEN=hf_token
+  # DEBUG
+  export NCCL_DEBUG=INFO
+  export VLLM_LOGGING_LEVEL=INFO # 開啟詳細 Log
+
   ```
+  
   ```
   python3 -m vllm.entrypoints.openai.api_server \
       --model openai/gpt-oss-20b              \
