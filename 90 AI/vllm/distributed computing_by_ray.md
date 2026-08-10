@@ -53,7 +53,7 @@ https://docs.ray.io/en/latest/index.html#
 2. 在主機 A 啟動 Ray Head 節點
 - 在主機 A（Master）終端機執行，啟動控制中心：
   ```
-  ray start --head --port=6379
+  ray start --head --port=6379 --node-ip-address='192.168.250.159'
   ```
 3. 在主機 B 加入 Ray 叢集
 - 在主機 B（Worker）終端機執行，將主機 B 的 1 張 GPU 加入主機 A 的叢集：
@@ -86,4 +86,5 @@ https://docs.ray.io/en/latest/index.html#
 若主機 A 有 2 卡、主機 B 有 2 卡（共 4 卡），最佳做法是 TP=2, PP=2：同機器內走高頻寬 TP=2，跨機器走 PP=2。
 - --gpu-memory-utilization：
 跨主機配置時，預設會佔用 90% 顯存。若出現 OOM，可適度降低（如 --gpu-memory-utilization 0.85）。
+- 所有主機的 python 版本及 vllm 版本必需一致
 
