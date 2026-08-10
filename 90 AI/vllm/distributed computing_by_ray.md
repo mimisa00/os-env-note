@@ -70,12 +70,18 @@ https://docs.ray.io/en/latest/index.html#
   rm -rf /tmp/ray
   ```
   ```
-  #關閉 IPV6 | 網卡名稱需替換成實際網卡
+  # 關閉 V1 引擎，切換至穩定版 V0 引擎
+  export VLLM_USE_V1=0
+  # 關閉 FlashAttention 2，強制全叢集使用 XFormers 或 Triton (因為有一張卡用了2080需向下相容，3060 x 2 + 2080 x 1)
+  export VLLM_ATTENTION_BACKEND_OVERRIDE=XFORMERS  # 或使用 TRITON_ATTN | XFORMERS
+  # 關閉 FlashInfer 採樣器 (因為有一張卡用了2080需向下相容，3060 x 2 + 2080 x 1)
+  export VLLM_USE_FLASHINFER_SAMPLER=0
+  # 關閉 IPV6 | 網卡名稱需替換成實際網卡
   export GLOO_SOCKET_IFNAME=eth0
   export NCCL_SOCKET_IFNAME=eth0
   export TP_SOCKET_IFNAME=eth0
   export GLIBCXX_USE_CXX11_ABI=1
-  #HF 設定值
+  # HF 設定值
   export HF_HOME=/path
   export HF_TOKEN=hf_token
   # DEBUG
