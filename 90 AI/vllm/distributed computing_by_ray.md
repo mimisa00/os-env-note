@@ -101,18 +101,21 @@ https://docs.ray.io/en/latest/index.html#
   or
   ```
   python3 -m vllm.entrypoints.openai.api_server \
-      --model QuixiAI/Qwen3-30B-A3B-AWQ       \
-      --pipeline-parallel-size 3              \
-      --tensor-parallel-size 1                \
-	  --distributed-executor-backend ray      \
-      --dtype float16                         \
-      --host 0.0.0.0                          \
-      --port 8000                             \
-      --gpu-memory-utilization 0.9            \
-      --max-model-len 8192                    \
-      --enable-auto-tool-choice               \
-      --tool-call-parser qwen3_coder          \
-      --reasoning-parser qwen3
+      --model QuixiAI/Qwen3-30B-A3B-AWQ \
+      --dtype float16 \
+      --pipeline-parallel-size 3 \
+      --tensor-parallel-size 1 \
+      --distributed-executor-backend ray \
+      --host 0.0.0.0 \
+      --port 8000 \
+      --gpu-memory-utilization 0.9 \
+	  --hf-overrides '{"rope_scaling": {"rope_type":"yarn","factor":4.0,"original_max_position_embeddings":32768}}'
+      --max-model-len 131072 \
+      --enforce-eager \
+      --quantization awq \
+      --enable-auto-tool-choice \
+      --tool-call-parser qwen3_coder \
+      --reasoning-parser qwen3 
   ```
 ### 重要參數解析與調優建議
 - --pipeline-parallel-size 3 (PP=3)：
