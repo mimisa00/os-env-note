@@ -134,3 +134,5 @@ https://docs.ray.io/en/latest/index.html#
 跨主機配置時，預設會佔用 90% 顯存。若出現 OOM，可適度降低（如 --gpu-memory-utilization 0.85）。
 - 所有主機的 python 版本及 vllm 版本必需一致
 
+# private note for one-self
+https://gemini.google.com/app/50b5d8435c297370?hl=zh-TW 
