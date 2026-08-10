@@ -70,8 +70,8 @@ https://docs.ray.io/en/latest/index.html#
   export TP_SOCKET_IFNAME=eth0
   export GLIBCXX_USE_CXX11_ABI=1
   #HF 設定值
-  HF_HOME=/path
-  HF_TOKEN=hf_token
+  export HF_HOME=/path
+  export HF_TOKEN=hf_token
   ```
   ```
   python3 -m vllm.entrypoints.openai.api_server \
