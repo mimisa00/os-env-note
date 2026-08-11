@@ -76,7 +76,7 @@ Marlin 的做法是把「反量化」與「矩陣乘法」融合在同一個 ker
 ### 硬體限制（重要）
 Marlin 需要 **Ampere（sm_80）以上**的 GPU 架構才能發揮完整效能，且部分版本要求 compute capability ≥ 8.0。
 
-> 對照你目前的硬體：RTX 3060（Ampere，sm_86）符合條件，可以吃到 Marlin 加速；但 RTX 2080（Turing，sm_75）**不支援 Marlin**，vLLM 在混合這兩種卡的叢集中，可能會針對 2080 退回較慢的原生 AWQ kernel，或是在排程上需要特別注意各節點的 kernel 相容性。
+> 假設硬體 RTX 3060（Ampere，sm_86）符合條件，可以吃到 Marlin 加速；但 RTX 2080（Turing，sm_75）**不支援 Marlin**，vLLM 在混合這兩種卡的叢集中，可能會針對 2080 退回較慢的原生 AWQ kernel，或是在排程上需要特別注意各節點的 kernel 相容性。
 
 ---
 
