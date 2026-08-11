@@ -27,12 +27,18 @@
           "limit": {
             "context": 65535,
             "output": 8192
+          },
+		  "variants": {
+            "low": {"reasoningEffort": "low"},
+            "medium": {"reasoningEffort": "medium"},
+            "high": {"reasoningEffort": "high"},
+            "xhigh": {"reasoningEffort": "xhigh"}
           }
         },
-        "qwen2.5-coder-7b": {
-          "name": "qwen2.5-coder-7b",
+        "QuixiAI/Qwen3-30B-A3B-AWQ": {
+          "name": "Qwen3-30B-A3B-AWQ",
           "limit": {
-            "context": 131072,
+            "context": 65535,
             "output": 8192
           }
         },
