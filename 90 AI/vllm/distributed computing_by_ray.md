@@ -40,8 +40,8 @@ https://docs.ray.io/en/latest/index.html#
 跨主機 3 卡配置步驟 (vLLM + Ray)
 
 假設配置如下：
-- 主機 A (Master/Head Node)：IP 192.168.1.100，擁有 2 張 GPU (CUDA_VISIBLE_DEVICES=0,1)
-- 主機 B (Worker Node)：IP 192.168.1.101，擁有 1 張 GPU (CUDA_VISIBLE_DEVICES=0)
+- 主機 A (Master/Head Node)：IP 192.168.250.159，擁有 2 張 GPU (CUDA_VISIBLE_DEVICES=0,1)
+- 主機 B (Worker Node)：IP 192.168.250.160，擁有 1 張 GPU (CUDA_VISIBLE_DEVICES=0)
 
 1. 準備環境與網路設定
 - 確保兩台主機均安裝相同版本的 Python、CUDA、PyTorch、vLLM 與 Ray
@@ -58,7 +58,7 @@ https://docs.ray.io/en/latest/index.html#
 3. 在主機 B 加入 Ray 叢集
 - 在主機 B（Worker）終端機執行，將主機 B 的 1 張 GPU 加入主機 A 的叢集：
   ```
-  ray start --address='192.168.1.100:6379'
+  ray start --address='192.168.250.159:6379'
   ```
 - 驗證叢集狀態：在主機 A 輸入 ray status，應看到共有 2 個 Nodes、3 張 GPUs。
 4. 在主機 A 啟動 vLLM API Server
