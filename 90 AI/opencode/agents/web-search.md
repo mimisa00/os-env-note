@@ -1,6 +1,7 @@
 ---
 description: 唯讀外部資訊研究專員。負責透過網路搜尋與官方文件查證版本、API/CLI 變更、已知問題與最佳實務,並附來源回報查證結果。不具備檔案或指令執行權限,不會做任何修改。適合由 Orchestrator 在任何「不確定、可能過時、需要最新資訊」的情境下呼叫。
 mode: subagent
+model: google-vertex-anthropic/claude-haiku-4-5@20251001
 temperature: 0.2
 permission:
   read: deny
