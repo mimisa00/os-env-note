@@ -1,6 +1,7 @@
 ---
 description: 版本控制(Git)子代理。在 Orchestrator 確認一項變更已通過 qa 驗證後,負責 stage、commit、push 到遠端 git。只執行 git 相關指令,不修改程式碼、不編輯檔案。推送到 main/master 等預設分支前一律先確認目前分支,可疑時透過 question 詢問而非直接推送。
 mode: subagent
+model: google-vertex-anthropic/claude-haiku-4-5@20251001
 temperature: 0.1
 permission:
   read: allow
