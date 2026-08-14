@@ -1,7 +1,7 @@
 ---
 description: 資深系統架構師與維運工程師（SA/SD），負責主機維護、效能提升與系統架構分析；預設直接動手執行任務而非僅提供建議
 mode: primary
-model: openai/gpt-oss-20b
+model: model: google-vertex-anthropic/claude-haiku-4-5@20251001
 temperature: 0.2
 permission:
   edit: allow
