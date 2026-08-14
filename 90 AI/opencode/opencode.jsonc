@@ -12,7 +12,7 @@
 	"question": "allow",
 	"playwright_*": "deny"
   },
-  "model": "openai/gpt-oss-20b",
+  "model": "vllm/gpt-oss-20b",
   "provider": {
     "vllm": {
       "npm": "@ai-sdk/openai-compatible",
@@ -22,8 +22,8 @@
         "apiKey": "vllm"
       },
       "models": {
-        "openai/gpt-oss-20b": {
-          "name": "openai/gpt-oss-20b",
+        "gpt-oss-20b": {
+          "name": "gpt-oss-20b",
           "limit": {
             "context": 65535,
             "output": 8192
@@ -31,22 +31,74 @@
 		  "variants": {
             "low": {"reasoningEffort": "low"},
             "medium": {"reasoningEffort": "medium"},
+            "high": {"reasoningEffort": "high"}
+          }
+        }
+      }
+    },
+    "google-vertex-anthropic": {
+      "models": {
+        "claude-sonnet-5": {
+          "variants": {
+            "low":    { "reasoningEffort": "low" },
+            "medium": { "reasoningEffort": "medium" },
+            "high":   { "reasoningEffort": "high" },
+            "xhigh":  { "reasoningEffort": "xhigh" },
+            "max":    { "reasoningEffort": "max" }
+          }
+        },
+        "claude-opus-5": {
+          "variants": {
+            "low":    { "reasoningEffort": "low" },
+            "medium": { "reasoningEffort": "medium" },
+            "high":   { "reasoningEffort": "high" },
+            "xhigh":  { "reasoningEffort": "xhigh" },
+            "max":    { "reasoningEffort": "max" }
+          }
+        },
+        "claude-haiku-4-5@20251001": {
+          "variants": {
+            "high":  { "reasoningEffort": "high" },
+            "max":    { "reasoningEffort": "max" }
+          }
+        }
+      }
+    },
+    "litellm": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "litellm",
+      "options": {
+        "baseURL": "https://api.eglogc.com/v1",
+        "apiKey": "sk-Ro2GMK03RxXszJN-jpPW-A"
+      },
+      "models": {
+        "vertex_ai/claude-haiku-4-5@20251001": {
+          "name": "claude-haiku-4-5",
+          "limit": { "context": 200000, "output": 8192 },
+          "variants": {
+            "low": {"reasoningEffort": "low"},
+            "medium": {"reasoningEffort": "medium"},
+            "high": {"reasoningEffort": "high"}
+          }
+        },
+        "vertex_ai/claude-sonnet-5": {
+          "name": "claude-sonnet-5",
+          "limit": { "context": 1000000, "output": 128000 },
+          "variants": {
+            "low": {"reasoningEffort": "low"},
+            "medium": {"reasoningEffort": "medium"},
             "high": {"reasoningEffort": "high"},
             "xhigh": {"reasoningEffort": "xhigh"}
           }
         },
-        "QuixiAI/Qwen3-30B-A3B-AWQ": {
-          "name": "Qwen3-30B-A3B-AWQ",
-          "limit": {
-            "context": 65535,
-            "output": 8192
-          }
-        },
-		"qwen3-4b-thinking": {
-          "name": "qwen3-4b-thinking",
-          "limit": {
-            "context": 131072,
-            "output": 8192
+        "vertex_ai/claude-opus-5": {
+          "name": "claude-opus-5",
+          "limit": { "context": 1000000, "output": 128000 },
+          "variants": {
+            "low": {"reasoningEffort": "low"},
+            "medium": {"reasoningEffort": "medium"},
+            "high": {"reasoningEffort": "high"},
+            "xhigh": {"reasoningEffort": "xhigh"}
           }
         }
       }
@@ -111,6 +163,11 @@
 		    "num_ctx": 131072,
             "extraBody": {
               "preserve_thinking": true
+            },
+			"variants": {
+              "low": {"reasoningEffort": "low"},
+              "medium": {"reasoningEffort": "medium"},
+              "high": {"reasoningEffort": "high"}
             }
           }
         }
