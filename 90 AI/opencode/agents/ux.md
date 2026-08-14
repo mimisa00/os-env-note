@@ -1,6 +1,7 @@
 ---
 description: 使用者體驗(UX)/文件與流程設計子代理。負責 Runbook、SOP、README/架構文件、CLI 提示與輸出訊息的可讀性,以及從操作者角度審視流程是否合理。不負責基礎設施實作或視覺化面板設計,聚焦「人怎麼理解與操作系統」。
 mode: subagent
+model: google-vertex-anthropic/claude-haiku-4-5@20251001
 temperature: 0.4
 permission:
   read: allow
