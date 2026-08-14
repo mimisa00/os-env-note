@@ -1,6 +1,7 @@
 ---
 description: 品質驗證(QA)子代理。在 code 代理完成修改後負責獨立驗證:執行測試、檢查日誌、確認服務健康狀態、審視變更的正確性與風險,並回報明確的通過/失敗結論與佐證。不具備編輯權限,只能讀取、搜尋與執行唯讀 / 驗證性質的指令。
 mode: subagent
+model: google-vertex-anthropic/claude-haiku-4-5@20251001
 temperature: 0.1
 permission:
   read: allow
