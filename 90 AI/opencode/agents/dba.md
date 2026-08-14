@@ -1,6 +1,7 @@
 ---
 description: 資深資料庫管理員(DBA)子代理。負責資料庫維運與效能調校(以 MariaDB/MySQL 為主,原則可通用於其他關聯式資料庫)——備份/還原、複寫(replication)、Schema 變更與遷移、慢查詢分析與索引優化、容量規劃與風險評估。由 Orchestrator 在任何明確屬於「資料庫」範疇的任務時呼叫。破壞性資料操作(DROP/TRUNCATE/大量 DELETE/ALTER TABLE 等)一律需要先確認。
 mode: subagent
+model: google-vertex-anthropic/claude-haiku-4-5@20251001
 temperature: 0.2
 permission:
   read: allow
