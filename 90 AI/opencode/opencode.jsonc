@@ -10,8 +10,14 @@
 	"glob": "allow",
 	"skill": "allow",
 	"question": "allow",
-	"playwright_*": "deny"
+	"playwright_*": "deny",
+	"context7_*": "deny"
   },
+  "plugin": [
+    "@franlol/opencode-md-table-formatter@latest",
+    "@tarquinen/opencode-dcp@latest",
+	"@kdcokenny/opencode-worktree"
+  ],
   "model": "vllm/gpt-oss-20b",
   "provider": {
     "vllm": {
@@ -37,6 +43,9 @@
       }
     },
     "google-vertex-anthropic": {
+	  "options": {
+        "setCacheKey": true
+      },
       "models": {
         "claude-sonnet-5": {
           "variants": {
@@ -69,7 +78,8 @@
       "name": "litellm",
       "options": {
         "baseURL": "https://api.eglogc.com/v1",
-        "apiKey": "sk-Ro2GMK03RxXszJN-jpPW-A"
+        "apiKey": "****************",
+		"setCacheKey": true
       },
       "models": {
         "vertex_ai/claude-haiku-4-5@20251001": {
@@ -185,6 +195,14 @@
 		"--caps=tabs,storage",  // 新增:tabs 給目前分頁/URL,storage 給 cookie 讀寫
 		"--output-dir=.qa-artifacts/playwright"
       ],
+      "enabled": true
+    },
+    // 官方套件/框架文件查詢(依名稱抓最新版本文件),僅供 librarian agent 使用
+    // 免費層即可用,速率限制較低;如需更高額度,到 https://context7.com/dashboard 申請 API key,
+    // 申請後把下面 command 陣列改成 ["npx", "-y", "@upstash/context7-mcp", "--api-key", "你的KEY"]
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
       "enabled": true
     }
   }
