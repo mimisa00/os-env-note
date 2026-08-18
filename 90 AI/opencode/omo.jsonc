@@ -1,0 +1,32 @@
+// OMO configuration
+{
+  "[opencode]": {
+    "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/omo.schema.json",
+    "agents": {
+	  "sisyphus": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+	  "oracle": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+      "prometheus": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+	  "metis": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+      "momus": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+	  "hephaestus": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+      "atlas": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-medium"},
+	  "explore": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-medium"},
+	  "librarian": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-medium"},
+	  "multimodal-looker": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-medium"},
+      "sisyphus-junior": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-medium"}
+    },
+    "categories": {
+	  "unspecified-high": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-high"},
+      "unspecified-low": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-low"},
+	  "quick": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-medium"},
+      "deep": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+      "visual-engineering": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+      "ultrabrain": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+      "artistry": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"},
+      "writing": {"model": "llama/Qwen3.8-27B-UD-Q4_K_XL-xhigh"}
+    }
+  },
+  "_migrations": [
+    "2026-08-reasoning-unification"
+  ]
+}
