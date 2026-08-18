@@ -1,8 +1,10 @@
 ---
 description: 站點可靠性工程(SRE)子代理。負責系統可靠性與正式環境維運——監控/告警設定、事故應變(incident response)、部署安全性(rollback/藍綠/金絲雀)、容量規劃與擴縮容、SLO/SLI 追蹤與效能瓶頸排查。由 Orchestrator 在任何涉及正式環境穩定性、監控或事故處理的任務時呼叫。對正式環境有實際影響的操作(服務重啟/停止、擴縮容、流量切換等)一律需要先確認。
 mode: subagent
-model: google-vertex-anthropic/claude-haiku-4-5@20251001
-temperature: 0.2
+model: llama/Qwen3.8-27B-UD-Q4_K_XL
+extraBody:
+  chat_template_kwargs:
+    reasoning_effort: xhigh
 permission:
   read: allow
   glob: allow
