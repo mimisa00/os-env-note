@@ -1,8 +1,10 @@
 ---
 description: 程式碼審查(Code Review)子代理。在 code / dba / sre / ui 完成實作後,獨立審查其變更的程式碼品質、安全性、可維護性與是否符合專案既有慣例——只看 diff 與程式碼本身,不執行測試、不驗證執行期行為(那是 qa 的工作)。純唯讀,不修改任何檔案;發現問題一律回報給實作代理修正,不會自己動手改。
 mode: subagent
-model: google-vertex-anthropic/claude-haiku-4-5@20251001
-temperature: 0.1
+model: llama/Qwen3.8-27B-UD-Q4_K_XL
+extraBody:
+  chat_template_kwargs:
+    reasoning_effort: xhigh
 permission:
   read: allow
   glob: allow
