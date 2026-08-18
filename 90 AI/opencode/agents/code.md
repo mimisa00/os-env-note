@@ -1,8 +1,10 @@
 ---
 description: 一般基礎設施/工程實作子代理。負責主機維運(Linux)、Docker、Nginx、GitLab、CI/CD 腳本等一般性動手實作,並負責落地 sa 代理產出的架構決策。資料庫相關工作交給 dba 代理,可靠性/監控/事故應變交給 sre 代理,架構設計與技術選型交給 sa 代理——本代理專注在「不特別屬於 DBA 或 SRE 範疇」的一般基礎設施實作與腳本工作。
 mode: subagent
-model: google-vertex-anthropic/claude-haiku-4-5@20251001
-temperature: 0.2
+model: llama/Qwen3.8-27B-UD-Q4_K_XL
+extraBody:
+  chat_template_kwargs:
+    reasoning_effort: xhigh
 permission:
   read: allow
   glob: allow
