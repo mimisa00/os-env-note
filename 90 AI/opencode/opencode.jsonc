@@ -38,14 +38,40 @@
             "xhigh":  { "extraBody": { "chat_template_kwargs": { "reasoning_effort": "xhigh" } } }
           }
         },
-        "Qwen3.8-27B-Q4_K_M": {
-          "name": "Qwen3.8-27B-Q4_K_M",
+        "Qwen3.8-27B-UD-Q4_K_XL-xhigh": {
+          "name": "Qwen3.8-27B-UD-Q4_K_XL(xhigh)",
           "limit": { "context": 131072, "output": 8192 },
-          "variants": {
-            "low":    { "extraBody": { "chat_template_kwargs": { "reasoning_effort": "low" } } },
-            "medium": { "extraBody": { "chat_template_kwargs": { "reasoning_effort": "medium" } } },
-            "high":   { "extraBody": { "chat_template_kwargs": { "reasoning_effort": "high" } } },
+		  "tools": true,
+          "reasoning": true,
+          "options": {
             "xhigh":  { "extraBody": { "chat_template_kwargs": { "reasoning_effort": "xhigh" } } }
+          }
+        },
+		"Qwen3.8-27B-UD-Q4_K_XL-high": {
+          "name": "Qwen3.8-27B-UD-Q4_K_XL(high)",
+          "limit": { "context": 131072, "output": 8192 },
+		  "tools": true,
+          "reasoning": true,
+          "options": {
+            "high":  { "extraBody": { "chat_template_kwargs": { "reasoning_effort": "high" } } }
+          }
+        },
+		"Qwen3.8-27B-UD-Q4_K_XL-medium": {
+          "name": "Qwen3.8-27B-UD-Q4_K_XL(medium)",
+          "limit": { "context": 131072, "output": 8192 },
+		  "tools": true,
+          "reasoning": true,
+          "options": {
+            "medium":  { "extraBody": { "chat_template_kwargs": { "reasoning_effort": "medium" } } }
+          }
+        },
+		"Qwen3.8-27B-UD-Q4_K_XL-low": {
+          "name": "Qwen3.8-27B-UD-Q4_K_XL(low)",
+          "limit": { "context": 131072, "output": 8192 },
+		  "tools": true,
+          "reasoning": true,
+          "options": {
+            "low":  { "extraBody": { "chat_template_kwargs": { "reasoning_effort": "low" } } }
           }
         }
       }
