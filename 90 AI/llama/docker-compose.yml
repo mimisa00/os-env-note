@@ -1,3 +1,9 @@
+#
+# export HF_HOME=${local_path_you_want}
+# hf download unsloth/Qwen3.8-27B-GGUF Qwen3.8-27B-UD-Q4_K_XL.gguf
+#
+#
+
 services:
 
   llama-server:
