@@ -2,7 +2,12 @@
 #
 # export HF_HOME=${local_path_you_want}
 # hf download unsloth/Qwen3.8-27B-GGUF Qwen3.8-27B-UD-Q4_K_XL.gguf
-#
+# for mtp need 26GB vRam
+#--spec-type draft-mtp
+#--spec-draft-n-max 2
+#--spec-draft-type-k q4_0
+#--spec-draft-type-v q4_0
+#--parallel 1
 ####################################################################
 
 services:
