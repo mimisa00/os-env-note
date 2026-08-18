@@ -1,4 +1,5 @@
 services:
+
   llama-server:
     image: ghcr.io/ggml-org/llama.cpp:server-cuda
     container_name: llama-qwen3.8-27b
@@ -20,8 +21,14 @@ services:
       -m ${HF_HOME}/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/f1bfb127c64f7072bdd2cad55f258b9c8b2910fe/Qwen3.8-27B-UD-Q4_K_XL.gguf
       -ts 1,1
       -ngl 99
-      -fa
-      --ctx-size 8192
+      -fa auto
+      --ctx-size 131072
+      --cache-type-k q8_0
+      --cache-type-v q8_0
+      -np 1
+      --spec-type draft-mtp
+      --spec-draft-n-max 2
+      --parallel 1
       --temp 1.0
       --top-p 0.95
       --top-k 20
@@ -31,7 +38,7 @@ services:
       --chat-template-kwargs '{"reasoning_effort":"xhigh"}'
       --jinja
       --reasoning-format deepseek
-      --alias Qwen3.8-27B-Q4_K_M
+      --alias Qwen3.8-27B-UD-Q4_K_M
       --host 0.0.0.0
       --port 8000
     restart: unless-stopped
