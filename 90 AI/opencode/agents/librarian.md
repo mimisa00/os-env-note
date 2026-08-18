@@ -1,8 +1,10 @@
 ---
 description: 官方文件查詢專員。針對明確指名的套件/框架/工具,透過 Context7 查詢當前版本的官方文件、API 簽章與正確用法,回答「這個東西現在的正確語法/用法是什麼」這類封閉式問題。與 web-search 的分工:librarian 處理「已經知道要查哪個套件,只是要精確語法/範例/版本差異」的查詢;開放式研究、方案比較、新聞與尚未鎖定套件的問題交給 web-search。唯讀,不修改任何檔案。
 mode: subagent
-model: google-vertex-anthropic/claude-haiku-4-5@20251001
-temperature: 0.1
+model: llama/Qwen3.8-27B-UD-Q4_K_XL
+extraBody:
+  chat_template_kwargs:
+    reasoning_effort: medium
 permission:
   read: deny
   edit: deny
