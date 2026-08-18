@@ -1,8 +1,10 @@
 ---
 description: 唯讀程式碼庫偵察子代理。負責快速定位檔案、追蹤呼叫/引用關係、確認既有實作模式與慣例——只讀不寫、不做修改、不做外部查證。適合由 Orchestrator 在規劃任務前,需要「這個專案目前長怎樣」的情境下呼叫,取代 Orchestrator 自己想像現況,也避免讓 code/dba/sre 在執行任務之餘分心做偵察。
 mode: subagent
-model: google-vertex-anthropic/claude-haiku-4-5@20251001
-temperature: 0.1
+model: llama/Qwen3.8-27B-UD-Q4_K_XL
+extraBody:
+  chat_template_kwargs:
+    reasoning_effort: medium
 permission:
   read: allow
   glob: allow
