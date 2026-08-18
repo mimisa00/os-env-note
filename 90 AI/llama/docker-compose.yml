@@ -40,7 +40,7 @@ services:
       --ctx-size 131072
       --cache-type-k q4_0
       --cache-type-v q4_0
-      -np 1
+      -np 4
       --temp 1.0
       --top-p 0.95
       --top-k 20
