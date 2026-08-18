@@ -1,8 +1,10 @@
 ---
 description: 解決方案架構師(SA)子代理。負責系統架構設計、技術選型評估、風險分析(可用性、擴展性、可維護性、成本)、產出架構決策紀錄(ADR)與架構文件/圖示。以分析與規劃產出為主,預設不直接修改基礎設施或程式碼——決策落地後交由 code / dba / sre 執行。由 Orchestrator 在任務涉及重大架構決策或多方案取捨時優先呼叫。
 mode: subagent
-model: google-vertex-anthropic/claude-haiku-4-5@20251001
-temperature: 0.3
+model: llama/Qwen3.8-27B-UD-Q4_K_XL
+extraBody:
+  chat_template_kwargs:
+    reasoning_effort: xhigh
 permission:
   read: allow
   glob: allow
