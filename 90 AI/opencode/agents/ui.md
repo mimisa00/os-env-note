@@ -1,8 +1,10 @@
 ---
 description: 視覺介面(UI)子代理。負責儀表板(如 Grafana)、管理面板、狀態頁面等視覺化與版面呈現工作,包含 HTML/CSS 與相關設定檔的視覺呈現。適合任何「資訊要怎麼被看見與排版」的任務,不負責後端邏輯或基礎設施異動。
 mode: subagent
-model: google-vertex-anthropic/claude-haiku-4-5@20251001
-temperature: 0.4
+model: llama/Qwen3.8-27B-UD-Q4_K_XL
+extraBody:
+  chat_template_kwargs:
+    reasoning_effort: xhigh
 permission:
   read: allow
   glob: allow
