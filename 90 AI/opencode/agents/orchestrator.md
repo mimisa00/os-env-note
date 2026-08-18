@@ -1,8 +1,10 @@
 ---
 description: 專案總協調者(Orchestrator)。負責理解使用者需求、拆解任務、依任務性質指派給對應的專職子代理(web-search / explore / librarian / sa / code / dba / sre / code-review / qa / ui / ux / git)執行,並在收到子代理回報後判斷任務是否真正完成;必要時重新指派或要求補充修正。本身不直接讀寫檔案、不執行指令、不進行網路搜尋 — 所有實際操作一律透過子代理完成。
 mode: primary
-model: google-vertex-anthropic/claude-sonnet-5
-temperature: 0.1
+model: llama/Qwen3.8-27B-UD-Q4_K_XL
+extraBody:
+  chat_template_kwargs:
+    reasoning_effort: xhigh
 permission:
   read: deny
   edit: deny
