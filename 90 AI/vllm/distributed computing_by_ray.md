@@ -121,7 +121,26 @@ https://docs.ray.io/en/latest/index.html#
       --quantization awq \
       --enable-auto-tool-choice \
       --tool-call-parser qwen3_coder \
-      --reasoning-parser qwen3 
+      --reasoning-parser qwen3
+  ```
+  or
+  ```
+  python3 -m vllm.entrypoints.openai.api_server \
+    --model unsloth/Qwen3.8-27B-NVFP4         \
+    --served-model-name Qwen3.8-27B-NVFP4     \
+    --dtype float16                           \
+    --pipeline-parallel-size 3                \
+    --tensor-parallel-size 1                  \
+    --distributed-executor-backend ray        \
+    --host 0.0.0.0                            \
+    --port 8000                               \
+    --gpu-memory-utilization 0.9              \
+    --hf-overrides '{"rope_scaling": {"rope_type":"yarn","factor":4.0,"original_max_position_embeddings":262144}}' \
+    --max-model-len 262144                    \
+    --enforce-eager                           \
+    --enable-auto-tool-choice                 \
+    --tool-call-parser qwen3_coder            \
+    --reasoning-parser qwen3 
   ```
 ### 重要參數解析與調優建議
 - --pipeline-parallel-size 3 (PP=3)：
