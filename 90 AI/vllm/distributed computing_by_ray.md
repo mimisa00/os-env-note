@@ -46,6 +46,7 @@ https://docs.ray.io/en/latest/index.html#
 1. 準備環境與網路設定
 - 確保兩台主機均安裝相同版本的 Python、CUDA、PyTorch、vLLM 與 Ray
   ```
+  # 注意 python 環境也需一致 https://github.com/mimisa00/knowledge/blob/main/90%20AI/python/virtual_env.md
   pip install vllm ray
   ```
 - 確保主機 B 能直接 ping 通主機 A，且主機 A 開放 Ray 預設的 Port 6379。
@@ -53,23 +54,35 @@ https://docs.ray.io/en/latest/index.html#
 2. 在主機 A 啟動 Ray Head 節點
 - 在主機 A（Master）終端機執行，啟動控制中心：
   ```
+  # HF 設定值
+  export HF_HOME=/path
+  export HF_TOKEN=hf_token
   ray start --head --port=6379 --node-ip-address='192.168.250.159'
   ```
 3. 在主機 B 加入 Ray 叢集
 - 在主機 B（Worker）終端機執行，將主機 B 的 1 張 GPU 加入主機 A 的叢集：
   ```
+  # HF 設定值
+  export HF_HOME=/path
+  export HF_TOKEN=hf_token
   ray start --address='192.168.250.159:6379'
   ```
 - 驗證叢集狀態：在主機 A 輸入 ray status，應看到共有 2 個 Nodes、3 張 GPUs。
 4. 在主機 A 啟動 vLLM API Server
 - 在主機 A 執行 vLLM 命令，設定 --pipeline-parallel-size 3（PP=3）：
   ```
+  ###################
+  # 當啟動異常，需重新啟動前重置環境，避免舊殘留資訊影響啟動
+  ###################
   ray stop --force
   pkill -9 -f vllm
   pkill -9 -f ray
   rm -rf /tmp/ray
   ```
   ```
+  #############################################
+  # 當啟動 vllm 時發生異常，可以透過以下參數微調 #
+  #############################################
   # 關閉 V1 引擎，切換至穩定版 V0 引擎
   export VLLM_USE_V1=0
   # 關閉 FlashAttention 2，強制全叢集使用 XFormers 或 Triton (因為有一張卡用了2080需向下相容，3060 x 2 + 2080 x 1)
@@ -81,13 +94,9 @@ https://docs.ray.io/en/latest/index.html#
   export NCCL_SOCKET_IFNAME=eth0
   export TP_SOCKET_IFNAME=eth0
   export GLIBCXX_USE_CXX11_ABI=1
-  # HF 設定值
-  export HF_HOME=/path
-  export HF_TOKEN=hf_token
   # DEBUG
   export NCCL_DEBUG=INFO
   export VLLM_LOGGING_LEVEL=INFO # 開啟詳細 Log
-
   ```
   
   ```
