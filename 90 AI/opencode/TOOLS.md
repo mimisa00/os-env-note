@@ -3,11 +3,12 @@
 ## opencode 即時權限審批
 ```
 # 當 opencode 在 vm 背景進行開發時，可透過 telegram 遠端操作主 session 進行即時審批
-# 需注意資安問題，啟動 bot 時不要使用預設密碼
+# 需注意資安問題，透過 npx 啟動 bot server 時不要使用預設密碼
 
 # 啟動本地 OpenCode API
 opencode serve
- 
+
+# 啟動 bot server
 # 依提示輸入 Bot Token 與 User ID 及即完成設定
 npx @grinev/opencode-telegram-bot
  
