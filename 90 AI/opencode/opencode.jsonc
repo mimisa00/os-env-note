@@ -19,7 +19,7 @@
     "@kdcokenny/opencode-worktree",
     //"oh-my-openagent@latest"
   ],
-  "model": "llama/Qwen3.8-27B",
+  "model": "google-vertex-anthropic/claude-sonnet-5",
   "provider": {
     "llama": {
       "npm": "@ai-sdk/openai-compatible",
@@ -29,234 +29,225 @@
         "apiKey": "llama"
       },
       "models": {
-        "Qwen3.8-27B": {
-          "name": "Qwen3.8-27B (default)",
-          "limit": {
-            "context": 65536,
-            "output": 32768
-          },
+		"Qwen3.8-27B": {
+          "name": "Qwen3.8-27B",
+          "limit": { "context": 65536, "output": 32768 },
           "variants": {
-            "fast": {
-              "body": {
-                "temperature": 0.7,
-                "top_p": 0.80,
-                "top_k": 20,
-                "min_p": 0.0,
-                "presence_penalty": 1.5,
-                "repetition_penalty": 1.0,
-                "chat_template_kwargs": {
-                  "enable_thinking": false
-                }
-              }
-            },
-            "low": {
-              "body": {
-                "temperature": 1.0,
-                "top_p": 0.95,
-                "top_k": 20,
-                "min_p": 0.0,
-                "presence_penalty": 0.0,
-                "repetition_penalty": 1.0,
-                "chat_template_kwargs": {
-                  "enable_thinking": true,
-                  "reasoning_effort": "low"
-                }
-              }
-            },
-            "medium": {
-              "body": {
-                "temperature": 1.0,
-                "top_p": 0.95,
-                "top_k": 20,
-                "min_p": 0.0,
-                "presence_penalty": 0.0,
-                "repetition_penalty": 1.0,
-                "chat_template_kwargs": {
-                  "enable_thinking": true,
-                  "reasoning_effort": "medium"
-                }
-              }
-            },
-            "xhigh": {
-              "body": {
-                "temperature": 1.0,
-                "top_p": 0.95,
-                "top_k": 20,
-                "min_p": 0.0,
-                "presence_penalty": 0.0,
-                "repetition_penalty": 1.0,
-                "chat_template_kwargs": {
-                  "enable_thinking": true,
-                  "reasoning_effort": "xhigh"
-                }
-              }
-            }
-          },
-          "attachment": true,
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "capabilities": {
-            "input": {
-              "image": true
-            }
-          }
-        },
-        "Qwen3.8-27B-fast": {
-          "name": "Qwen3.8-27B (fast)",
-          "limit": {
-            "context": 65536,
-            "output": 32768
-          },
-          "options": {
-            "temperature": 0.7,
-            "top_p": 0.80,
-            "top_k": 20,
-            "min_p": 0.0,
-            "presence_penalty": 1.5,
-            "repetition_penalty": 1.0,
-            "chat_template_kwargs": {
-              "enable_thinking": false
-            }
-          },
-          "attachment": true,
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "capabilities": {
-            "input": {
-              "image": true
-            }
-          }
-        },
-        "Qwen3.8-27B-low": {
-          "name": "Qwen3.8-27B (low)",
-          "limit": {
-            "context": 65536,
-            "output": 32768
-          },
-          "options": {
-            "temperature": 1.0,
-            "top_p": 0.95,
-            "top_k": 20,
-            "min_p": 0.0,
-            "presence_penalty": 0.0,
-            "repetition_penalty": 1.0,
-            "chat_template_kwargs": {
-              "enable_thinking": true,
-              "reasoning_effort": "low"
-            }
-          },
-          "attachment": true,
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "capabilities": {
-            "input": {
-              "image": true
-            }
-          }
-        },
-        "Qwen3.8-27B-medium": {
-          "name": "Qwen3.8-27B (medium)",
-          "limit": {
-            "context": 65536,
-            "output": 32768
-          },
-          "options": {
-            "temperature": 1.0,
-            "top_p": 0.95,
-            "top_k": 20,
-            "min_p": 0.0,
-            "presence_penalty": 0.0,
-            "repetition_penalty": 1.0,
-            "chat_template_kwargs": {
-              "enable_thinking": true,
-              "reasoning_effort": "medium"
-            }
-          },
-          "attachment": true,
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "capabilities": {
-            "input": {
-              "image": true
-            }
-          }
-        },
-        "Qwen3.8-27B-xhigh": {
-          "name": "Qwen3.8-27B (xhigh)",
-          "limit": {
-            "context": 65536,
-            "output": 32768
-          },
-          "options": {
-            "temperature": 1.0,
-            "top_p": 0.95,
-            "top_k": 20,
-            "min_p": 0.0,
-            "presence_penalty": 0.0,
-            "repetition_penalty": 1.0,
-            "chat_template_kwargs": {
-              "enable_thinking": true,
-              "reasoning_effort": "xhigh"
-            }
-          },
-          "attachment": true,
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          },
-          "capabilities": {
-            "input": {
-              "image": true
-            }
+            "low": {"reasoningEffort": "low"},
+            "medium": {"reasoningEffort": "medium"},
+            "xhigh": {"reasoningEffort": "xhigh"}
           }
         }
       }
     },
+//    "vllm": {
+//      "npm": "@ai-sdk/openai-compatible",
+//      "name": "vllm Local",
+//      "options": {
+//        "baseURL": "http://192.168.250.159:8000/v1",
+//        "apiKey": "vllm"
+//      },
+//      "models": {
+//        "gpt-oss-20b": {
+//          "name": "gpt-oss-20b",
+//          "limit": {
+//            "context": 65535,
+//            "output": 8192
+//          },
+//          "variants": {
+//            "low": {"reasoningEffort": "low"},
+//            "medium": {"reasoningEffort": "medium"},
+//            "high": {"reasoningEffort": "high"}
+//          }
+//        }
+//      }
+//    },
+//    "google-vertex-anthropic": {
+//      "options": {
+//        "setCacheKey": true
+//      },
+//      "models": {
+//        "claude-sonnet-5": {
+//          "attachment": true,
+//          "modalities": {
+//            "input": ["text", "image"],
+//            "output": ["text"]
+//          },
+//          "variants": {
+//            "low":    { "reasoningEffort": "low" },
+//            "medium": { "reasoningEffort": "medium" },
+//            "high":   { "reasoningEffort": "high" },
+//            "xhigh":  { "reasoningEffort": "xhigh" },
+//            "max":    { "reasoningEffort": "max" }
+//          }
+//        },
+//        "claude-opus-5": {
+//          "attachment": true,
+//          "modalities": {
+//            "input": ["text", "image"],
+//            "output": ["text"]
+//          },
+//          "variants": {
+//            "low":    { "reasoningEffort": "low" },
+//            "medium": { "reasoningEffort": "medium" },
+//            "high":   { "reasoningEffort": "high" },
+//            "xhigh":  { "reasoningEffort": "xhigh" },
+//            "max":    { "reasoningEffort": "max" }
+//          }
+//        },
+//        "claude-haiku-4-5@20251001": {
+//          "attachment": true,
+//          "modalities": {
+//            "input": ["text", "image"],
+//            "output": ["text"]
+//          },
+//          "variants": {
+//            "high": { "reasoningEffort": "high" },
+//            "max":  { "reasoningEffort": "max" }
+//          }
+//        }
+//      }
+//    },
+//    "litellm": {
+//      "npm": "@ai-sdk/anthropic",
+//      "name": "litellm",
+//      "options": {
+//        "baseURL": "https://api.eglogc.com/v1",
+//        "apiKey": "*************",
+//        "setCacheKey": true
+//      },
+//      "models": {
+//        "vertex_ai/claude-haiku-4-5@20251001": {
+//          "name": "claude-haiku-4-5",
+//          "limit": { "context": 200000, "output": 8192 },
+//          "attachment": true,
+//          "modalities": {
+//            "input": ["text", "image"],
+//            "output": ["text"]
+//          },
+//          "variants": {
+//            "low": {"reasoningEffort": "low"},
+//            "medium": {"reasoningEffort": "medium"},
+//            "high": {"reasoningEffort": "high"}
+//          }
+//        },
+//        "vertex_ai/claude-sonnet-5": {
+//          "name": "claude-sonnet-5",
+//          "limit": { "context": 1000000, "output": 128000 },
+//          "attachment": true,
+//          "modalities": {
+//            "input": ["text", "image"],
+//            "output": ["text"]
+//          },
+//          "variants": {
+//            "low": {"reasoningEffort": "low"},
+//            "medium": {"reasoningEffort": "medium"},
+//            "high": {"reasoningEffort": "high"},
+//            "xhigh": {"reasoningEffort": "xhigh"}
+//          }
+//        },
+//        "vertex_ai/claude-opus-5": {
+//          "name": "claude-opus-5",
+//          "limit": { "context": 1000000, "output": 128000 },
+//          "attachment": true,
+//          "modalities": {
+//            "input": ["text", "image"],
+//            "output": ["text"]
+//          },
+//          "variants": {
+//            "low": {"reasoningEffort": "low"},
+//            "medium": {"reasoningEffort": "medium"},
+//            "high": {"reasoningEffort": "high"},
+//            "xhigh": {"reasoningEffort": "xhigh"}
+//          }
+//        }
+//      }
+//    },
+//    "ollama": {
+//      "npm": "@ai-sdk/openai-compatible",
+//      "name": "Ollama Local",
+//      "options": {
+//        "baseURL": "http://192.168.250.159:11434/v1",
+//        "apiKey": "ollama"
+//      },
+//      "models": {
+//        "qwen3-coder-64k:latest": {
+//          "name": "Qwen3 Coder 30B 64K(Primary Developer)",
+//          "limit": {
+//            "context": 65536,
+//            "output": 8192
+//          }
+//        },
+//        "qwen3-coder:30b": {
+//          "name": "Qwen3 Coder 30B (Primary Developer)",
+//          "limit": {
+//            "context": 65536,
+//            "output": 8192
+//          }
+//        },
+//        "qwen3.6:latest": {
+//          "name": "Qwen 3.6 Multimodal/General",
+//          "limit": {
+//            "context": 32768,
+//            "output": 4096
+//          },
+//          "attachment": true,
+//          "modalities": {
+//            "input": ["text", "image"],
+//            "output": ["text"]
+//          }
+//        },
+//        "pdurlej/qwythos-9b-claude-mythos-5-1m:Q4_K_M": {
+//          "name": "Qwythos 9B (Large Context Analyst)",
+//          "limit": {
+//            "context": 65536,
+//            "output": 8192
+//          }
+//        },
+//        "hf.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF:BF16": {
+//          "name": "Qwythos 9B Unquantized BF16",
+//          "limit": {
+//            "context": 32768,
+//            "output": 4096
+//          }
+//        },
+//        "gpt-oss:20b": {
+//          "name": "GPT-OSS 20B (Fast Utility)",
+//          "limit": {
+//            "context": 32768,
+//            "output": 8192
+//          }
+//        },
+//        "gpt-oss-20b-128k:latest": {
+//          "name": "GPT-OSS 20B 128k(Fast Utility)",
+//          "limit": {
+//            "context": 131072,
+//            "output": 8192
+//          },
+//          "options": {
+//            "num_ctx": 131072,
+//            "extraBody": {
+//              "preserve_thinking": true
+//            },
+//            "variants": {
+//              "low": {"reasoningEffort": "low"},
+//              "medium": {"reasoningEffort": "medium"},
+//              "high": {"reasoningEffort": "high"}
+//            }
+//          }
+//        }
+//      }
+//    }
   },
   "mcp": {
     // 賦予 opencode 網頁點擊能力,僅供 qa agent 在驗證階段使用
     "playwright": {
       "type": "local",
       "command": [
-        "npx",
-        "-y",
-        "@playwright/mcp@latest",
-        "--isolated", // 每次 session 用乾淨的 browser context,不留 cookie/localStorage,QA 不該汙染真實登入態
-        "--headless", // 沒有桌面環境的機器/CI 上必要
-        "--caps=tabs,storage", // 新增:tabs 給目前分頁/URL,storage 給 cookie 讀寫
+        "npx", "-y", "@playwright/mcp@latest",
+        "--isolated",          // 每次 session 用乾淨的 browser context,不留 cookie/localStorage,QA 不該汙染真實登入態
+        "--headless",          // 沒有桌面環境的機器/CI 上必要
+        "--caps=tabs,storage",  // 新增:tabs 給目前分頁/URL,storage 給 cookie 讀寫
         "--output-dir=.qa-artifacts/playwright"
       ],
       "enabled": true
@@ -266,12 +257,9 @@
     // 申請後把下面 command 陣列改成 ["npx", "-y", "@upstash/context7-mcp", "--api-key", "你的KEY"]
     "context7": {
       "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@upstash/context7-mcp"
-      ],
+      "command": ["npx", "-y", "@upstash/context7-mcp","--api-key", "***************"],
       "enabled": true
     }
-  }
+  },
+  "shell": "bash"
 }
